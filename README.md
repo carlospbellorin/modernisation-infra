@@ -1,8 +1,6 @@
 Terraform repository to provision the infrastructure for the application.
 
 ## ToDo:
-
-* Linux Web App Slot (Staging)
 * App Insight (for logging)
  
 ## List of Provisioned resources:
@@ -12,5 +10,6 @@ Terraform repository to provision the infrastructure for the application.
 * App Service Plan
 * Environment Variables
 * Linux Web App 
+* Linux Web App Slot (Staging) 
 
 Note: Terraform init, plan and apply are not included in this repository.
