@@ -11,7 +11,7 @@ output "resource_group_id" {
   description = "Resource Group ID"
   value       = azurerm_resource_group.rg.id
 }
-output "resource_group_environment" {
-    description = "Resource Group Environment"
-    value       = var.environment
+output "resource_group_tags" {
+    description = "Resource Group Tags"
+    value       = azurerm_resource_group.rg.tags
 }

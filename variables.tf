@@ -10,8 +10,11 @@ variable "location" {
     default     = "Australia East"
 }
 
-variable "environment" {
-  type          = string
-  description   = "Name of environment"
-  default       = "dev"
+variable "tags" {
+  description   = "Tags to apply to the resources"
+  type          = map(string)
+  default       = {
+    project     = "modernisation"
+    environment = "dev"
+  }
 }
