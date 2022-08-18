@@ -78,3 +78,19 @@ output "service_plan_tags" {
 }
 # [END] App Service Plan Outputs
 
+# [START] Linux web app Outputs:
+output "linux_web_app_name" {
+  description = "Name of the Linux web app"
+  value       = azurerm_linux_web_app.paysystems_container.name
+  depends_on  = [azurerm_linux_web_app.paysystems_container]
+}
+output "linux_web_app_location" {
+  description = "Location of the Linux web app"
+  value       = azurerm_linux_web_app.paysystems_container.location
+}
+output "linux_web_app_id" {
+  description = "ID of the Linux web app"
+  value       = azurerm_linux_web_app.paysystems_container.id
+}
+# [END] Linux web app Outputs
+
