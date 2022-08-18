@@ -11,6 +11,7 @@ resource "azurerm_container_registry" "acr" {
   location                  = var.location
   sku                       = "Premium"
   admin_enabled             = false
+  tags                  = var.tags
   georeplications {
     location                = var.us_geo_replication_location
     zone_redundancy_enabled = true
