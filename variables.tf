@@ -1,4 +1,4 @@
-# Resource Group Variables
+# [START] Resource Group Variables
 variable "resource_group_name" {
   type                       = string
   description                = "Name of resource group"
@@ -18,7 +18,9 @@ variable "tags" {
     terraform_provisioned    = "true"
   }
 }
-# Azure Container Registry Variables
+# [END] Resource Group Variables
+
+# [START] Azure Container Registry Variables
 variable "azure_container_registry_name" {
   type                       = string
   description                = "Name of the Azure Container Registry"
@@ -34,9 +36,30 @@ variable "europe_geo_replication_location" {
   description                = "Name of the Europe geo-replication location"
   default                    = "West Europe"
 }
-# User Assigned Identity Variables
+# [END] Azure Container Registry Variables
+
+# [START] User Assigned Identity Variables
 variable "user_assigned_identity_name" {
   type                       = string
   description                = "Name of the UAI to pull images"
   default                    = "uai-paysystemspull-Dev-001"
 }
+# [END] User Assigned Identity Variables
+
+# [START] App Service Plan Variables:
+variable "service_plan_name" {
+  type                       = string
+  description                = "Name of the App Service Plan"
+  default                    = "asp-paysystems-dev-001"
+}
+variable "service_plan_location" {
+  type                       = string
+  description                = "Name of the App Service Plan location"
+  default                    = "Australia East"
+}
+variable "service_plan_os_type" {
+  type                       = string
+  description                = "Name of the App Service Plan kind"
+  default                    = "Linux"
+}
+# [END] App Service Plan Variables

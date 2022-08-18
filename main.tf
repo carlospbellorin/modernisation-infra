@@ -38,3 +38,14 @@ resource "azurerm_user_assigned_identity" "uai-pull"{
   tags = var.tags
 }
 # [END azurerm_assign_identity]
+
+# [START] azurerm_app_service_plan
+resource "azurerm_service_plan" "paysystems_app_service_plan" {
+  name                = var.service_plan_name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.rg.name
+  os_type             = var.service_plan_os_type
+  sku_name            = "P2v2"
+  tags                = var.tags
+}
+# [END] azurerm_app_service_plan
