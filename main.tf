@@ -58,6 +58,30 @@ resource "azurerm_linux_web_app" "paysystems_container" {
   service_plan_id     = azurerm_service_plan.paysystems_app_service_plan.id
   site_config {}
 
+  identity {
+    type = "SystemAssigned, UserAssigned"
+    identity_ids = [azurerm_user_assigned_identity.uai-pull.id]
+  }
+
   app_settings = local.env_variables
+
+  tags = var.tags
 }
 # [END] azurerm_linux_web_app
+
+#[START] azurerm_linux_web_app_slot
+resource "azurerm_linux_web_app_slot" "paysystems_container_staging" {
+  name           = var.linux_web_app_slot_name
+  app_service_id = azurerm_linux_web_app.paysystems_container.id
+
+  site_config {}
+
+  identity {
+    type = "SystemAssigned, UserAssigned"
+    identity_ids = [azurerm_user_assigned_identity.uai-pull.id]
+  }
+
+  app_settings  = local.env_variables
+  tags          = var.tags
+}
+# [END] azurerm_linux_web_app_slot

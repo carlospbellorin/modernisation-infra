@@ -94,3 +94,14 @@ output "linux_web_app_id" {
 }
 # [END] Linux web app Outputs
 
+# [START] Linux web app slot Outputs:
+output "linux_web_app_slot_name" {
+  description = "Name of the Linux web app slot"
+  value       = azurerm_linux_web_app_slot.paysystems_container_staging.name
+  depends_on  = [azurerm_linux_web_app_slot.paysystems_container_staging]
+}
+output "linux_web_app_slot_id" {
+  description = "ID of the Linux web app slot"
+  value       = azurerm_linux_web_app_slot.paysystems_container_staging.id
+}
+# [END] Linux web app slot Outputs

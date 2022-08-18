@@ -76,3 +76,13 @@ variable "linux_web_app_location" {
   default                    = "Australia East"
 }
 # [END] Linux Web App Variables
+
+# [START] Linux Web App Slot Variables:
+variable "linux_web_app_slot_name" {
+  type                       = string
+  description                = "Name of the Linux Web App Slot"
+  default                    = "lwa-slot-paysystems-dev-001"
+}
+
+# [END] Linux Web App Slot Variables
+
