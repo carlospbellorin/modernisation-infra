@@ -58,3 +58,23 @@ output "user_assigned_tenant_id" {
 }
 # [END] Assigned Identity Outputs
 
+# [START} App Service Plan Outputs:
+output "service_plan_name" {
+  description = "Name of the App Service Plan"
+  value       = azurerm_service_plan.paysystems_app_service_plan.name
+  depends_on  = [azurerm_service_plan.paysystems_app_service_plan]
+}
+output "service_plan_location" {
+  description = "Location of the App Service Plan"
+  value       = azurerm_service_plan.paysystems_app_service_plan.location
+}
+output "service_plan_id" {
+  description = "ID of the App Service Plan"
+  value       = azurerm_service_plan.paysystems_app_service_plan.id
+}
+output "service_plan_tags" {
+  description = "Tags of the App Service Plan"
+  value       = azurerm_service_plan.paysystems_app_service_plan.tags
+}
+# [END] App Service Plan Outputs
+
