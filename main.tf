@@ -1,10 +1,13 @@
+# [START azurerm_resource_group]
 resource "azurerm_resource_group" "rg" {
   location      = var.location
   name          = var.resource_group_name
 
   tags          = var.tags
 }
+# [END azurerm_resource_group]
 
+# [START azurerm_container_registry]
 resource "azurerm_container_registry" "acr" {
   name                      = var.azure_container_registry_name
   resource_group_name       = azurerm_resource_group.rg.name
@@ -24,3 +27,14 @@ resource "azurerm_container_registry" "acr" {
   }
 
 }
+# [END azurerm_container_registry]
+
+# [START azurerm_assign_identity]
+resource "azurerm_user_assigned_identity" "uai-pull"{
+  name                = "var.user_assigned_identity_name"
+  resource_group_name = azurerm_resource_group.rg.name
+  location = var.location
+
+  tags = var.tags
+}
+# [END azurerm_assign_identity]
