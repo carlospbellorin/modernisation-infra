@@ -105,3 +105,29 @@ output "linux_web_app_slot_id" {
   value       = azurerm_linux_web_app_slot.paysystems_container_staging.id
 }
 # [END] Linux web app slot Outputs
+
+# [START] Application Insights Outputs:
+output "application_insights_name" {
+  description = "Name of the Application Insights"
+  value       = azurerm_application_insights.paysystems_app_insights.name
+  depends_on  = [azurerm_application_insights.paysystems_app_insights]
+}
+output "application_insights_location" {
+  description = "Location of the Application Insights"
+  value       = azurerm_application_insights.paysystems_app_insights.location
+}
+output "application_insights_id" {
+  description = "ID of the Application Insights"
+  value       = azurerm_application_insights.paysystems_app_insights.id
+}
+output "instrumentation_key" {
+  description = "Instrumentation Key of the Application Insights"
+  value       = azurerm_application_insights.paysystems_app_insights.instrumentation_key
+  sensitive   = true
+}
+output "application_insights_tags" {
+  description = "Tags of the Application Insights"
+  value       = azurerm_application_insights.paysystems_app_insights.tags
+}
+# [END] Application Insights Outputs
+

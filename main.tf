@@ -69,7 +69,7 @@ resource "azurerm_linux_web_app" "paysystems_container" {
 }
 # [END] azurerm_linux_web_app
 
-#[START] azurerm_linux_web_app_slot
+# [START] azurerm_linux_web_app_slot
 resource "azurerm_linux_web_app_slot" "paysystems_container_staging" {
   name           = var.linux_web_app_slot_name
   app_service_id = azurerm_linux_web_app.paysystems_container.id
@@ -85,3 +85,13 @@ resource "azurerm_linux_web_app_slot" "paysystems_container_staging" {
   tags          = var.tags
 }
 # [END] azurerm_linux_web_app_slot
+
+# [START] azurerm_applications_insights
+resource "azurerm_application_insights" "paysystems_app_insights" {
+  name                = var.app_insights_name
+  location            = var.app_insights_location
+  resource_group_name = azurerm_resource_group.rg.name
+  application_type    = "Node.JS"
+  tags                = var.tags
+}
+# [END] azurerm_applications_insights

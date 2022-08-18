@@ -83,6 +83,18 @@ variable "linux_web_app_slot_name" {
   description                = "Name of the Linux Web App Slot"
   default                    = "lwa-slot-paysystems-dev-001"
 }
-
 # [END] Linux Web App Slot Variables
+
+# [START] Application Insights Variables:
+variable "app_insights_name" {
+  type                       = string
+  description                = "Name of the Application Insights"
+  default                    = "ai-paysystems-dev-001"
+}
+variable "app_insights_location" {
+  type                       = string
+  description                = "Name of the Application Insights location"
+  default                    = "Australia East"
+}
+# [END] Application Insights Variables
 
