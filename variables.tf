@@ -63,3 +63,16 @@ variable "service_plan_os_type" {
   default                    = "Linux"
 }
 # [END] App Service Plan Variables
+
+# [START] Linux Web App Variables:
+variable "linux_web_app_name" {
+  type                       = string
+  description                = "Name of the Linux Web App"
+  default                    = "lwa-paysystems-dev-001"
+}
+variable "linux_web_app_location" {
+  type                       = string
+  description                = "Name of the Linux Web App location"
+  default                    = "Australia East"
+}
+# [END] Linux Web App Variables
