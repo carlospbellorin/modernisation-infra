@@ -30,14 +30,22 @@ resource "azurerm_container_registry" "acr" {
 # [END] azurerm_container_registry
 
 # [START] azurerm_assign_identity
-resource "azurerm_user_assigned_identity" "uai-pull"{
-  name                = "var.user_assigned_identity_name"
+resource "azurerm_user_assigned_identity" "uai_pull"{
+  name                = var.user_assigned_identity_name
   resource_group_name = azurerm_resource_group.rg.name
   location = var.location
 
   tags = var.tags
 }
 # [END] azurerm_assign_identity
+
+# [START] azurerm_role_assignment
+resource "azurerm_role_assignment" "role_assignment" {
+  scope                = azurerm_container_registry.acr.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_user_assigned_identity.uai_pull.principal_id
+}
+# [END] azurerm_role_assignment
 
 # [START] azurerm_app_service_plan
 resource "azurerm_service_plan" "paysystems_app_service_plan" {
@@ -60,7 +68,7 @@ resource "azurerm_linux_web_app" "paysystems_container" {
 
   identity {
     type = "SystemAssigned, UserAssigned"
-    identity_ids = [azurerm_user_assigned_identity.uai-pull.id]
+    identity_ids = [azurerm_user_assigned_identity.uai_pull.id]
   }
 
   app_settings = local.env_variables
@@ -78,7 +86,7 @@ resource "azurerm_linux_web_app_slot" "paysystems_container_staging" {
 
   identity {
     type = "SystemAssigned, UserAssigned"
-    identity_ids = [azurerm_user_assigned_identity.uai-pull.id]
+    identity_ids = [azurerm_user_assigned_identity.uai_pull.id]
   }
 
   app_settings  = local.env_variables
