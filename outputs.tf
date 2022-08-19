@@ -41,20 +41,20 @@ output "azure_container_registry_tags" {
 # [START] Assigned Identity Outputs:
 output "user_assigned_identity_name" {
   description = "Name of the Assigned Identity"
-  value       = azurerm_user_assigned_identity.uai-pull.name
-  depends_on  = [azurerm_user_assigned_identity.uai-pull]
+  value       = azurerm_user_assigned_identity.uai_pull.name
+  depends_on  = [azurerm_user_assigned_identity.uai_pull]
 }
 output "user_assigned_identity_client_id" {
   description = "ID of the Assigned Identity"
-  value       = azurerm_user_assigned_identity.uai-pull.client_id
+  value       = azurerm_user_assigned_identity.uai_pull.client_id
 }
 output "user_assigned_identity_principal_id" {
   description = "Principal ID of the Assigned Identity"
-  value       = azurerm_user_assigned_identity.uai-pull.principal_id
+  value       = azurerm_user_assigned_identity.uai_pull.principal_id
 }
 output "user_assigned_tenant_id" {
   description = "Tenant ID of the Assigned Identity"
-  value       = azurerm_user_assigned_identity.uai-pull.tenant_id
+  value       = azurerm_user_assigned_identity.uai_pull.tenant_id
 }
 # [END] Assigned Identity Outputs
 
